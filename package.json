@@ -1,0 +1,63 @@
+{
+    "name": "package-name",
+    "author": "authorName",
+    "version": "0.0.1",
+    "license": "MIT",
+    "main": "dist/index.js",
+    "module": "dist/index.mjs",
+    "types": "dist/index.d.ts",
+    "files": [
+        "dist",
+        "src"
+    ],
+    "engines": {
+        "node": ">=14"
+    },
+    "size-limit": [
+        {
+            "path": "dist/index.js",
+            "limit": "10 KB"
+        },
+        {
+            "path": "dist/index.mjs",
+            "limit": "10 KB"
+        }
+    ],
+    "pre-commit": [
+        "lint",
+        "test"
+    ],
+    "publishConfig": {
+        "access": "public"
+    },
+    "scripts": {
+        "dev": "tsup --watch \"src/**/*.{js,ts}\"",
+        "build": "tsup",
+        "test": "vitest run --coverage",
+        "test:ui": "vitest --ui",
+        "lint": "yarn lint:check && yarn prettier:check",
+        "lint:check": "eslint . --ext js,ts --max-warnings=3 --config .eslintrc.json --no-eslintrc",
+        "prettier:check": "prettier -c .",
+        "prettier:write": "prettier -w .",
+        "prepare": "yarn build",
+        "size": "size-limit",
+        "npm:publish": "np"
+    },
+    "devDependencies": {
+        "@typescript-eslint/eslint-plugin": "^5.31.0",
+        "@typescript-eslint/parser": "^5.31.0",
+        "@vitest/ui": "^0.19.1",
+        "c8": "^7.12.0",
+        "eslint": "^8.20.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.26.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "np": "^7.6.2",
+        "pre-commit": "^1.2.2",
+        "prettier": "^2.7.1",
+        "size-limit": "^7.0.8",
+        "tsup": "^6.2.0",
+        "typescript": "^4.7.4",
+        "vitest": "^0.19.1"
+    }
+}
