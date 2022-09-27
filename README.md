@@ -1,4 +1,4 @@
-# packageName
+# @op-ent/opent-js
 
 [![npm version][npm-version-src]][npm-version-href]
 [![npm downloads][npm-downloads-src]][npm-downloads-href]
@@ -7,41 +7,40 @@
 [![Codecov][codecov-src]][codecov-href]
 [![MIT License][license-src]][license-href]
 
-[📖 **Release Notes**](./CHANGELOG.md)
-
-> Package description
+opent-js est un client javascript pour l'[API](https://github.com/op-ent/api) d'op-ent.
 
 ## Usage
 
-Install package:
+Ce package n'est pas encore disponible sur NPM.
 
-```sh
-# npm
-npm install packageName
+## Développer
 
-# yarn
-yarn install packageName
+### Prérequis
 
-# pnpm
-pnpm install packageName
-```
+-   [Node.js](https://nodejs.org/en/)
+-   [Git](https://git-scm.com/)
+-   [Yarn v1](https://classic.yarnpkg.com/en/docs/install)
+-   [Setup l'API](https://github.com/op-ent/api)
 
-Import:
+### Installation & configuration
+
+Exécuter `yarn` pour installer les dépendances.
+
+### Lancement
+
+Exécuter `yarn dev` pour lancer le serveur de développement.
+
+En développement, il faut passer en paramètre du client une `baseUrl` différente :
 
 ```js
-// ESM
-import { sum } from 'packageName'
+import { createClient } from '@op-ent/opent-js'
 
-// CommonJS
-const { sum } = require('packageName')
+const client = createClient({
+    accessId: process.env.ACCESS_ID,
+    accessToken: process.env.ACCESS_TOKEN,
+    baseUrl: 'http://localhost:3333', // <--- URL de l'API en local
+})
 ```
-
-## 💻 Development
-
--   Clone this repository
--   Install dependencies using `yarn install`
--   Watch files in development using `yarn dev`
--   Run interactive tests using `yarn test`
 
 ## License
 
