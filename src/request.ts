@@ -38,7 +38,7 @@ export default class Client {
     public async request<T>(
         method: RequestMethod,
         path: string,
-        payload: AxiosRequestHeaders | null = null,
+        payload: Record<string, unknown> | null = null,
         customHeaders: AxiosRequestHeaders = {}
     ): Promise<{
         data?: T
